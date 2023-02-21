@@ -1,0 +1,54 @@
+<%-include('../layouts/header.ejs')%>
+
+
+<form action="/users/search" method="post">
+  <input type="text" name="search" placeholder="Search here">
+  <button type="submit" class="btn btn-success">Search</button>
+</form>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Upate</th>
+       <th scope="col">Delete</th>
+     
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% let i=1; for(let datas of data){  %>
+
+    
+    <tr>
+      
+      <td><%= i %></td>
+      <td><%= datas.Firstname %></td>
+      <td><%= datas.Lastname %></td>
+      <td><%= datas.Email %></td>
+    <td> <form action="/users/updateuser/<%= datas._id %>" method="get">
+     <button class="btn btn-primary bg-primary" type="submit" name="upate">Update</button></form>
+     </td>
+      <td> <form action="/users/deleteuser/<%= datas._id %>" method="post">
+     <button class="btn btn-primary bg-primary" type="submit" name="Delete">Delete</button></form>
+     </td>
+     
+    </tr>
+    <% i++ } %>
+   
+  </tbody>
+</table>
+
+
+ <form class="text-center p-3" action="/users/logout" method="post">
+     <button class="btn btn-primary bg-dark" type="submit" name="logout">Logout</button></form>
+    
+
+
+
+<%-include('../layouts/footer.ejs')%>

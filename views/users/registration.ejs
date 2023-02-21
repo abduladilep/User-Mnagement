@@ -1,0 +1,56 @@
+<%-include('../layouts/header.ejs')%>
+
+  
+
+
+<!-- <script  src="../users/validation.js"></script> -->
+
+<div class="container text-center">
+<h1 class="text-center fs-1 p-5 mt-5 fw-bold">Sign Up</h1>
+<form class="P-5  text-center"action="/users/registerpost" id="form" method="post" >
+
+  
+  First name  : 
+    <input  id="Firstname" type="text" class="form-control" name="Firstname" placeholder="First name" required><br>
+
+  <br><br>
+  
+    Last name  :  
+    <input id="Lastname" type="text" class="form-control" name="Lastname" placeholder="Last name"required >
+
+  <br><br>
+  
+  Email :  
+    <input id="Email" type="text" class="form-control" name="Email"  placeholder="Email" required>
+
+  <br><br>
+  
+  
+   Password :
+    <input id="Password" type="password" class="form-control" name="Password" placeholder="password" required >
+  
+  <br><br>
+
+
+
+
+  
+    <button class="btn btn-primary"  type="submit">Register<button>
+ 
+  
+</form>
+
+</div>
+
+<% 
+if(typeof message !== 'undefined'){
+
+%>
+  <p class="text-center fs-3 mt-3" ><%= message %></p>
+<%
+}
+%> 
+
+<%-include('../layouts/footer.ejs')%>
+
+
